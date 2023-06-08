@@ -1,0 +1,9 @@
+{
+	"full_name": "",
+	"email": "",
+	"app_name": "myapp",
+	"url": "https://bitbucket.org/anthesis-dev/{{ cookiecutter.app_name }}",
+	"project_name": "My Pip Installable Python Package",
+	"project_short_description": "",
+	"version": "0.0.1"
+}
