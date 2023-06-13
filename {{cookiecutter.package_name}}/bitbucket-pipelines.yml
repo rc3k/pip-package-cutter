@@ -1,0 +1,26 @@
+image: python:3.8.10
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: Build
+          
+          script:
+            - git clone git@bitbucket.org:anthesis-dev/acn.git
+            - cd acn
+            - git checkout acn-test3
+            - CURRENT_APP={{cookiecutter.app_name}}
+            - source build/build.sh
+            
+          services:
+            - mysql
+  
+definitions:
+  services:
+    mysql:
+      image: mysql:5.7.40
+      variables:
+        MYSQL_DATABASE: $MYSQL_DATABASE
+        MYSQL_USER: $MYSQL_USER
+        MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+        MYSQL_PASSWORD: $MYSQL_PASSWORD
